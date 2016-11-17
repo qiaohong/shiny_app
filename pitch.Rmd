@@ -1,0 +1,39 @@
+---
+title: "Reproducible Pitch"
+author: "Qiaohong"
+date: "11/17/2016"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Summary
+
+* This deck introduces you to the shiny app I made that shows US election results per state.
+* Red state - there are more votes to republicans than to democrats.
+* Blue state - there are more votes to democrates than to republicans.
+* White state - the votes are almost the same to both party candidates.
+* The darker the blue/ red color is, the bigger the differences are in votes.
+
+## Plot example
+* Results for 2016 (Clinton v.s. Trump). In the shiny app you can see results from 2012 as well for comparison
+* The app is [here](https://ciao.shinyapps.io/coursera_assignment/)
+```{r}
+library(ggplot2)
+source("helper.R")
+data <- readRDS("data/data_for_map.rds")
+make_plot(data, "c_t")
+```
+
+## Tech details
+* Plot was made with ggplot
+* Data was pre-processed and uploaded.
+* The function making plot is in helper.R to make the code neat.
+
+## Reference links
+* Election data was sourced from github [Emil Kierkegaard](https://github.com/Deleetdk/USA.county.data)
+* The architect of the app was inspired by the [R Shiny tutorial](http://shiny.rstudio.com/tutorial/lesson5/)
+* The ggplot code got some help from [here] (https://www.r-bloggers.com/us-state-maps-using-map_data/)
